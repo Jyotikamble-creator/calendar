@@ -1,7 +1,9 @@
+// import necessary libraries and types
 import { useState } from "react";
 import { addMonths, subMonths } from "date-fns";
 import { generateCalendarDays } from "@/app/utils/useCalendar";
 
+// custom hook to manage calendar state and logic
 export const useCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [startDate, setStartDate] = useState<Date | null>(null);

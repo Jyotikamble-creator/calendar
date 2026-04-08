@@ -1,3 +1,4 @@
+// define the types for the calendar application
 export type CalendarState = {
   currentDate: Date;
   days: Date[];

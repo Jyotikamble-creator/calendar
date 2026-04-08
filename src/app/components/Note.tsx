@@ -1,10 +1,14 @@
 "use client";
+
+// import necessary libraries and types
 import { useState, useEffect } from "react";
 
+// define the NotesPanel component props
 interface NotesPanelProps {
   selectedDate?: Date | null;
 }
 
+// function for the NotesPanel component
 export default function NotesPanel({ selectedDate }: NotesPanelProps) {
   const [notesMap, setNotesMap] = useState<Record<string, string>>({});
   const [currentNote, setCurrentNote] = useState("");
@@ -34,6 +38,7 @@ export default function NotesPanel({ selectedDate }: NotesPanelProps) {
     setCurrentNote(selectedNote);
   }, [selectedNote]);
 
+  // render the notes panel with a textarea for adding notes and a save button
   return (
     <div className="p-4 bg-blue-50 h-full border-l border-gray-200 shadow-md rounded-l-lg">
       <h3 className="text-lg font-semibold mb-4 text-gray-900">Notes</h3>

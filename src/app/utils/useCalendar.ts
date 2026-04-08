@@ -1,3 +1,4 @@
+// import necessary libraries and types
 import {
   startOfMonth,
   endOfMonth,
@@ -6,6 +7,7 @@ import {
   addDays,
 } from "date-fns";
 
+// function to generate an array of calendar days
 export const generateCalendarDays = (date: Date) => {
   const start = startOfWeek(startOfMonth(date));
   const end = endOfWeek(endOfMonth(date));

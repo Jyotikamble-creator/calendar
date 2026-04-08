@@ -1,6 +1,8 @@
+// import necessary libraries and types
 import { isSameDay, isWithinInterval, format, isSameMonth } from "date-fns";
 import clsx from "clsx";
 
+// define the DayCell component
 interface DayCellProps {
   day: Date;
   startDate: Date | null;
@@ -9,6 +11,7 @@ interface DayCellProps {
   currentDate: Date;
 }
 
+// function for the DayCell component
 function DayCell({ day, startDate, endDate, onSelect, currentDate }: DayCellProps) {
   const isStart = startDate && isSameDay(day, startDate);
   const isEnd = endDate && isSameDay(day, endDate);
@@ -21,6 +24,7 @@ function DayCell({ day, startDate, endDate, onSelect, currentDate }: DayCellProp
 
   const isCurrentMonth = isSameMonth(day, currentDate);
 
+  // render the day cell with appropriate styles based on its state
   return (
     <div
       onClick={() => onSelect(day)}
@@ -38,6 +42,7 @@ function DayCell({ day, startDate, endDate, onSelect, currentDate }: DayCellProp
   );
 }
 
+// define the CalendarGrid component
 interface CalendarGridProps {
   days: Date[];
   startDate: Date | null;
@@ -46,9 +51,11 @@ interface CalendarGridProps {
   currentDate?: Date;
 }
 
+// function for the CalendarGrid component
 export default function CalendarGrid({ days, startDate, endDate, onSelect, currentDate = new Date() }: CalendarGridProps) {
   const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
+  // render the calendar grid with week day headers and day cells
   return (
     <div className="p-4 md:col-span-2">
       <div className="grid grid-cols-7 gap-2 mb-4">
