@@ -12,23 +12,28 @@ export default function Calendar() {
     startDate,
     endDate,
     handleSelect,
+    nextMonth,
+    prevMonth,
   } = useCalendar();
 
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-4xl">
+      <Header
+        currentDate={currentDate}
+        onNextMonth={nextMonth}
+        onPrevMonth={prevMonth}
+      />
 
-      <Header currentDate={currentDate} />
-
-      <div className="grid md:grid-cols-3">
-        <NotesPanel />
+      <div className="grid md:grid-cols-3 min-h-[400px]">
+        <NotesPanel selectedDate={startDate} />
         <CalendarGrid
           days={days}
           startDate={startDate}
           endDate={endDate}
           onSelect={handleSelect}
+          currentDate={currentDate}
         />
       </div>
-
     </div>
   );
 }

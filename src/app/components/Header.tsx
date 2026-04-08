@@ -1,17 +1,42 @@
 import { format } from "date-fns";
+import Image from "next/image";
 
-export default function Header({ currentDate }: { currentDate: Date }) {
+interface HeaderProps {
+  currentDate: Date;
+  onNextMonth: () => void;
+  onPrevMonth: () => void;
+}
+
+export default function Header({ currentDate, onNextMonth, onPrevMonth }: HeaderProps) {
   return (
     <div className="relative h-64">
-      <img
-        src=""
-        className="w-full h-full object-cover"
+      <Image
+        src="/w1.png"
+        alt="Calendar hero image"
+        fill
+        className="object-cover"
+        loading="eager"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
 
-      <div className="absolute bottom-0 right-0 bg-blue-500 text-white p-4">
+      <div className="absolute bottom-0 right-0 bg-white text-black p-4 rounded-tl-lg shadow-lg">
         <h2 className="text-xl font-bold">
           {format(currentDate, "MMMM yyyy")}
         </h2>
+        <div className="flex gap-2 mt-2">
+          <button
+            onClick={onPrevMonth}
+            className="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            ‹
+          </button>
+          <button
+            onClick={onNextMonth}
+            className="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            ›
+          </button>
+        </div>
       </div>
     </div>
   );
