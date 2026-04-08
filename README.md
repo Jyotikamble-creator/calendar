@@ -88,4 +88,7 @@ A polished, interactive Next.js calendar component inspired by physical wall cal
 - **Add Notes**: Select a date, type in the notes panel, and click "Save Note". Notes load when revisiting the date.
 - **Responsive**: Resize browser or view on mobile – layout adapts seamlessly.
 
+# Live
 
+## Demo Video : https://drive.google.com/file/d/1K9EA54j5yuQceQjcrFysZivw6IPM6ft8/view
+## website :https://calendar-gamma-virid.vercel.app/
